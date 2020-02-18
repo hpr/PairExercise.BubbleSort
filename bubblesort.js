@@ -7,10 +7,10 @@ helpers.swap = function(arr, idx1, idx2) {
   return arr;
 };
 
-function bubbleSort(arr) {
+function bubbleSort(arr, comparator = (a,b) => a - b) {
   for (let j = 0; j < arr.length; j++) {
     for (let i = 0; i < arr.length - 1; i++) {
-      if (arr[i] > arr[i+1]) {
+      if (comparator(arr[i], arr[i+1]) > 0) {
         arr = helpers.swap(arr, i, i+1);
       }
     }
